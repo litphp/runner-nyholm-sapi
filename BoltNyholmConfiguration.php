@@ -10,8 +10,16 @@ use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
 use Psr\Http\Message\ResponseFactoryInterface;
 
+/**
+ * Configuration class for nyholm runner
+ */
 class BoltNyholmConfiguration
 {
+    /**
+     * Return default configuration for nyholm runner.
+     *
+     * @return array
+     */
     public static function default()
     {
         return [

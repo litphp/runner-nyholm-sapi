@@ -10,6 +10,9 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use function Http\Response\send;
 
+/**
+ * nyholm runner
+ */
 class BoltNyholmRunner
 {
     /**
@@ -33,7 +36,12 @@ class BoltNyholmRunner
         $this->serverRequestCreator = $serverRequestCreator;
     }
 
-
+    /**
+     * run a bolt app with nyholm.
+     *
+     * @param array $config The application configuration.
+     * @return void
+     */
     public static function run($config = [])
     {
         $container = $config instanceof ContainerInterface
@@ -45,7 +53,7 @@ class BoltNyholmRunner
         $runner->runApp();
     }
 
-    public function runApp()
+    protected function runApp()
     {
         $request = $this->serverRequestCreator->fromGlobals();
         $response = $this->handler->handle($request);
